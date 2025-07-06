@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: 'recursive'
 
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v2
@@ -47,9 +47,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      - run: |
-          cd harbor
-          sh ../.hack/patch.sh
+      - run: sh ../.hack/patch.sh
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
@@ -98,7 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: 'recursive'
 
       - uses: actions/setup-go@v2
         with:
@@ -116,9 +114,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      - run: |
-          cd harbor
-          sh ../.hack/patch.sh
+      - run: sh ../.hack/patch.sh
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
