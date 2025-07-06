@@ -3,7 +3,7 @@ name: Docker publish
 on:
   push:
     branches:
-      - 'master'
+      - 'HEAD:dependabot/submodules/harbor-5c92b2f'
 
 jobs:
   docker-base-image:
