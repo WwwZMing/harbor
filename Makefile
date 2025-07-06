@@ -1,5 +1,5 @@
 VERSION = $(shell cat version)
-
+# 增加一行备注
 dep:
 	git submodule update --init
 	git submodule update --force --remote
