@@ -46,8 +46,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
           
-      - run: sudo make -f ../Makefile dep
-      - run: sh ../.hack/patch.sh
+      - run: bash ../.hack/patch.sh
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"

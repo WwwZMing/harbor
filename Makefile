@@ -1,4 +1,4 @@
-VERSION = v2.3.2
+VERSION = $(shell cat version)
 # 增加一行备注
 dep:
 	git submodule update --init
@@ -6,7 +6,7 @@ dep:
 	git submodule foreach -q --recursive 'git reset --hard && git checkout ${VERSION}'
 
 patch: dep
-	cd harbor && sh ../.hack/patch.sh
+	cd harbor && bash ../.hack/patch.sh
 
 tools-install:
 	go install github.com/octohelm/cuemod/cmd/cuem@latest
