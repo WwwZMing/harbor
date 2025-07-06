@@ -51,7 +51,7 @@ jobs:
 
 
       - id: prepare
-        run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
+        run: echo "tag=$(cat ../version)"  >> $GITHUB_ENV
 
       - name: Build base image
         uses: docker/build-push-action@v2
@@ -119,7 +119,7 @@ jobs:
       - run: sh ../.hack/patch.sh
 
       - id: prepare
-        run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
+        run: echo "tag=$(cat ../version)"  >> $GITHUB_ENV
 
       - name: Build & Publish images
         env:
