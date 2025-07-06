@@ -63,7 +63,7 @@ jobs:
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.revision=${{ env.tag }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ github.repository }}/harbor-${{ matrix.component }}-base:${{ env.tag }}
+          tags: ghcr.io/wwwzming/harbor-${{ matrix.component }}-base:${{ env.tag }}
 
   docker-image:
     needs:
