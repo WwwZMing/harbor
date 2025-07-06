@@ -50,7 +50,7 @@ jobs:
       - run: sh ../.hack/patch.sh
 
       - id: prepare
-        run: echo "::set-output name=tag::$(cat ../version)"
+        run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
 
       - name: Build base image
         uses: docker/build-push-action@v2
@@ -103,7 +103,7 @@ jobs:
           go-version: '^1.16'
 
       - uses: docker/setup-qemu-action@v1
-      - uses: docker/setup-buildx-action@v1
+      - uses: docker/setup-buildx-action@v2
         with:
           driver: docker-container
           driver-opts: network=host
@@ -117,7 +117,7 @@ jobs:
       - run: sh ../.hack/patch.sh
 
       - id: prepare
-        run: echo "::set-output name=tag::$(cat ../version)"
+        run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
 
       - name: Build & Publish images
         env:
