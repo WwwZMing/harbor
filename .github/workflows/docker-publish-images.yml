@@ -32,7 +32,7 @@ jobs:
         working-directory: ./harbor
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -47,7 +47,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      - run: sh ../.hack/patch.sh
+      - run: |
+          cd harbor
+          sh ../.hack/patch.sh
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
@@ -94,7 +96,7 @@ jobs:
         working-directory: ./harbor
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -114,7 +116,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      - run: sh ../.hack/patch.sh
+      - run: |
+          cd harbor
+          sh ../.hack/patch.sh
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_OUTPUT"
