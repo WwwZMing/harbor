@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v2
@@ -96,7 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
       - uses: actions/setup-go@v2
         with:
