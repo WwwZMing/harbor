@@ -1,4 +1,4 @@
-VERSION = $(shell cat version)
+VERSION = v2.3.2
 # 增加一行备注
 dep:
 	git submodule update --init
